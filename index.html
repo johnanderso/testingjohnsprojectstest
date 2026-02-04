@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Test v1.2</title>
+    <style>
+        body { font-family: sans-serif; background: #f9f9f9; text-align: center; padding: 20px; color: #333; }
+        .test-container { max-width: 400px; margin: 50px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        input, select { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #222; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        
+        /* THE ORIGINAL SURPRISE STYLING */
+        #original-surprise { display: none; padding: 40px 20px; }
+        .pink-text { color: #e91e63; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="decoy-section" class="test-container">
+        <h3>Layout Test v1.2</h3>
+        <p>Please complete this quick UI check.</p>
+        <hr>
+        <p>1. How are you feeling post-exams?</p>
+        <input type="text" placeholder="Enter status...">
+
+        <p>2. Resumption Projection:</p>
+        <select>
+            <option>Early (Model Student 🤓)</option>
+            <option>My own choice/timeline 💅</option>
+        </select>
+
+        <p>3. Rate this layout (1-5):</p>
+        <input type="number" min="1" max="5" placeholder="Rating">
+
+        <button id="mainBtn" onclick="runSwitch()">Submit Layout Test</button>
+    </div>
+
+    <div id="original-surprise">
+        <h1>Favour! ❤️</h1>
+        <p>I know the recordings from the old device were lost, but I wanted to make sure you knew this...</p>
+        <p>You've worked so hard, and I'm so proud of you.</p>
+        <hr style="width: 50%; margin: 20px auto;">
+        
+        <h3>Wait—Really?!... No take-backs allowed! 😉</h3>
+        <h2 class="pink-text">hehe🥲😁❤️</h2>
+
+        <audio id="bgMusic" loop>
+            <source src="foreversweet.m4a" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        function runSwitch() {
+            var btn = document.getElementById('mainBtn');
+            var decoy = document.getElementById('decoy-section');
+            var surprise = document.getElementById('original-surprise');
+            var music = document.getElementById('bgMusic');
+
+            // 1. Change button text to show it's working
+            btn.innerText = "Submitting...";
+            
+            setTimeout(function() {
+                btn.innerText = "Switching...";
+            }, 1000);
+
+            // 2. Hide decoy and show the original surprise
+            setTimeout(function() {
+                decoy.style.display = "none";
+                document.body.style.background = "#fff0f5"; // Romantic background
+                surprise.style.display = "block";
+                music.play();
+            }, 2500);
+        }
+    </script>
+</body>
+  </html>
+  
